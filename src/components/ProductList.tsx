@@ -1,11 +1,13 @@
 import React from 'react';
-import { Products } from '../types';
-import productsData from '../data/products';
+import { Product } from '../types';
 import { ProductItem } from './ProductItem';
 import '../styles/abstracts/_grid.scss'
-const products: Products = productsData;
+interface ProductListProps {
+    products: Product[];
+}
 
-export const ProductList: React.FC = () => {
+
+export const ProductList: React.FC<ProductListProps> = ({ products }) => {
     return (
         <div className='grid'>
             {products.map(product => (

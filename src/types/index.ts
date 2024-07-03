@@ -11,8 +11,9 @@ export interface CartItem extends Product {
 
 export interface State {
   cart: CartItem[];
+  products: Product[];
 }
 
-export type Action = { type: "ADD_TO_CART"; product: Product } | { type: "REMOVE_FROM_CART"; id: number } | { type: "CLEAR_CART" };
+export type Action = { type: "ADD_TO_CART"; product: Product } | { type: "REMOVE_FROM_CART"; id: number } | { type: "CLEAR_CART" } | { type: "ADD_PRODUCT"; product: Product };
 
 export type Products = Product[];
