@@ -6,7 +6,7 @@ import { ThemeProvider } from './components/contentext/ThemeProvider';
 function App() {
   return (
     <ThemeProvider>
-      <div className="container">
+      <div>
         <header className="header">
           <ShoppingCartProvider>
             <HomePage />

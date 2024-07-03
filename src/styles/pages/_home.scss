@@ -14,4 +14,30 @@
 
 .title {
     text-align: center;
+
+}
+
+
+.dark-mode {
+    background-color: #000000;
+    color: #ffff;
+}
+
+.dark-mode .title {
+    color: #000;
+
+}
+
+.dark-mode .main {
+    background-color: #1e1e1e;
+
+}
+
+.dark-mode button {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.dark-mode .titlehome {
+    color: #fff
 }
