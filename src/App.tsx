@@ -1,16 +1,19 @@
-import './App.css';
+import './styles/App.scss';
 import { ShoppingCartProvider } from './components/contentext/EcommerceC';
 import HomePage from './pages/HomePage';
+import { ThemeProvider } from './components/contentext/ThemeProvider';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ShoppingCartProvider>
-          <HomePage />
-        </ShoppingCartProvider>
-      </header>
-    </div>
+    <ThemeProvider>
+      <div className="container">
+        <header className="header">
+          <ShoppingCartProvider>
+            <HomePage />
+          </ShoppingCartProvider>
+        </header>
+      </div >
+    </ThemeProvider>
   );
 }
 

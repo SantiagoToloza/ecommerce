@@ -1,0 +1,18 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixins;
+
+
+
+button {
+    // @include mixins.flex-center;
+    background-color: var.$button-background;
+    color: var.$button-color;
+    border: none;
+    border-radius: var.$button-border-radius;
+    padding: var.$button-padding;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken(var.$button-background, 10%);
+    }
+}

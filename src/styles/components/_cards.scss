@@ -1,0 +1,50 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+
+.cards {
+    background-color: vars.$card-background;
+    border: 1px solid vars.$card-border;
+    border-radius: vars.$card-radius;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: auto;
+    height: auto;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:"2rem"
+
+    h2 {
+        color: vars.$primary-color;
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: vars.$secondary-color;
+        margin-bottom: 15px;
+    }
+
+    .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: vars.$price-color;
+    }
+
+    button {
+        // @include mixins.flexCenter;
+        background-color: vars.$button-background;
+        color: vars.$button-color;
+        border: none;
+        border-radius: vars.$button-border-radius;
+        padding: vars.$button-padding;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken(vars.$button-background, 10%);
+        }
+    }
+}
