@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, ReactNode, useState, useEffect } from 'react';
-import { State, Action, Product } from '../../types';
+import { State, Action } from '../../types';
 import productsData from '../../data/products';
 const initialState: State = {
     cart: [],
