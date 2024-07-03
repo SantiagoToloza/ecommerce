@@ -18,7 +18,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
 
     return (
         <div className='cards'>
-            <div className='cards '></div>
+            <div className='cards '>picture</div>
             <h2 className='title'>{product.name}</h2>
             <p>{product.price}</p>
             <button className='button' onClick={addToCart} >Add to Cart</button>
