@@ -1,10 +1,33 @@
-import React, { createContext, useContext, useReducer, ReactNode, useState } from 'react';
+import React, { createContext, useContext, useReducer, ReactNode, useState, useEffect } from 'react';
 import { State, Action, Product } from '../../types';
 import productsData from '../../data/products';
 const initialState: State = {
     cart: [],
     products: productsData,
 };
+
+const loadStateFromLocalStorage = (): State => {
+    try {
+        const serializedState = localStorage.getItem('shoppingCartState');
+        if (serializedState === null) {
+            return initialState;
+        }
+        return JSON.parse(serializedState);
+    } catch (err) {
+        console.error('Could not load state from localStorage:', err);
+        return initialState;
+    }
+};
+const saveStateToLocalStorage = (state: State) => {
+    try {
+        const serializedState = JSON.stringify(state);
+        localStorage.setItem('shoppingCartState', serializedState);
+    } catch (err) {
+        console.error('Could not save state to localStorage:', err);
+    }
+};
+
+
 
 
 const reducer = (state: State, action: Action): State => {
@@ -54,9 +77,11 @@ const ShoppingCartContext = createContext<{
 } | undefined>(undefined);
 
 export const ShoppingCartProvider = ({ children }: { children: ReactNode }) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, loadStateFromLocalStorage());
     const [darkMode, setDarkMode] = useState<boolean>(false);
-
+    useEffect(() => {
+        saveStateToLocalStorage(state);
+    }, [state]);
     return (
         <ShoppingCartContext.Provider value={{ state, dispatch, darkMode, setDarkMode }}>
             {children}
