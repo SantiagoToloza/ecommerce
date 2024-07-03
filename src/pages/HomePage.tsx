@@ -20,12 +20,18 @@ const HomePage: React.FC = () => {
         navigate('/add-product');
     };
 
+    const goToTest = () => {
+        navigate('/Test');
+    };
+
     return (
         <div className={darkMode ? 'dark-mode ' : ''}>
             <header className='title' >
                 <h1 className='titlehome'>Welcome to Our Store</h1>
                 <button onClick={toggleDarkMode}>Toggle with dark Mode</button>
                 <button onClick={goToAddProductPage}>Add Product</button>
+                <button onClick={goToTest}>Test</button>
+
             </header >
             <main className='container'>
                 <section  >
